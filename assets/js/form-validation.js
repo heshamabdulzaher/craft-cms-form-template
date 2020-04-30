@@ -1,6 +1,6 @@
 const currentActiveStep = document.querySelector('.main-form .step.active');
 const formFields = currentActiveStep.querySelectorAll(
-  '.step.active .form-field input'
+  '.step.active .form-field input[name]:not([type="radio"])'
 );
 const lang = window.location.pathname.includes('/en') ? 'en' : 'ar';
 window.onload = function () {
@@ -9,6 +9,7 @@ window.onload = function () {
 
 function fireFieldsEvents() {
   formFields.forEach((inp) => {
+    console.log(inp);
     if (inp.type === 'checkbox') {
       inp.addEventListener('click', onCkecked);
     }
