@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Craft CMS Form Template</title>
     <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script>
+      window.onUsersnapCXLoad = function (api) {
+        api.init();
+      };
+      var script = document.createElement('script');
+      script.async = 1;
+      script.src =
+        'https://widget.usersnap.com/load/bcdd0a8c-69a8-4a49-b7dd-cd797b11050a?onload=onUsersnapCXLoad';
+      document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
   </head>
   <body>
     <!-- Header -->
@@ -63,6 +73,14 @@
               pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               data-err-msg="Incorrect email"
             />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-field flex align-center">
+            <input class="checkbox" id="termsAndConditions" type="checkbox" />
+            <label for="termsAndConditions">
+              Agree to <a href="#">terms and conditions</a>
+            </label>
           </div>
         </div>
         <button type="submit" class="btn main-btn" disabled>Submit</button>

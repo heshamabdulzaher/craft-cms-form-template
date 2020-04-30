@@ -1,6 +1,6 @@
 const currentActiveStep = document.querySelector('.main-form .step.active');
 const formFields = currentActiveStep.querySelectorAll(
-  '.step.active .form-field input'
+  '.step.active .form-group input'
 );
 const lang = window.location.pathname.includes('/en') ? 'en' : 'ar';
 window.onload = function () {
@@ -9,6 +9,7 @@ window.onload = function () {
 
 function fireFieldsEvents() {
   formFields.forEach((inp) => {
+    console.log(inp.type);
     inp.addEventListener('keyup', onFieldKeyup);
     inp.addEventListener('blur', onFieldBlur);
     // Create small element to contain error msg

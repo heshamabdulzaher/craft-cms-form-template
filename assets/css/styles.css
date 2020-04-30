@@ -280,6 +280,45 @@ a {
   display: block;
 }
 
+.checkbox {
+  display: none;
+}
+.checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  padding-left: 30px;
+}
+.checkbox + label a {
+  color: #ff375e;
+  text-decoration: underline;
+}
+.checkbox + label:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-radius: 3px;
+  transform: translateY(-50%);
+}
+.checkbox:checked + label:before {
+  background-color: #ff375e;
+}
+.checkbox:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  background: white;
+  width: 3px;
+  height: 3px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+}
+
 header {
   padding: 20px 0;
 }
