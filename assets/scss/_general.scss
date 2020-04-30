@@ -15,8 +15,40 @@ $txtColor: #1d252d;
 body {
   background-color: #fff;
   color: $txtColor;
-  &.en {
-    direction: rtl;
+}
+body.ar {
+  direction: rtl;
+  .form-group small {
+    left: auto;
+    right: 0;
+  }
+  .form-field.custom-radio .radio-group:first-of-type {
+    padding-right: 0;
+    padding-left: 20px;
+  }
+  .form-field.custom-radio label {
+    padding-left: 0;
+    padding-right: 34px;
+    &::before {
+      left: auto;
+      right: 0;
+    }
+    &::after {
+      left: auto;
+      right: 6px;
+    }
+  }
+  .form-group.custom-checkbox label {
+    padding-left: 0;
+    padding-right: 34px;
+    &::before {
+      left: auto;
+      right: 0;
+    }
+  }
+  .form-group.custom-checkbox input:checked + label:after {
+    left: auto;
+    right: 13px;
   }
 }
 

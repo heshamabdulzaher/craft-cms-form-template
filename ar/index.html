@@ -18,26 +18,26 @@
       })('userback-sdk');
     </script>
   </head>
-  <body>
+  <body class="ar">
     <!-- Header -->
     <header>
       <div class="main-container flex align-center justify-between">
         <img src="../assets/img/stc-logo.svg" alt="stc logo" class="logo" />
-        <a href="/ar/" class="lang-switcher"><span>عربى</span></a>
+        <a href="/en/" class="lang-switcher"><span>English</span></a>
       </div>
     </header>
     <!-- End Header -->
 
     <!-- Main form -->
     <section class="main-form">
-      <div class="alert-err-msg">something went wrong!</div>
+      <div class="alert-err-msg">حدث خطأ ما!</div>
       <form
         novalidate
         onsubmit="renderNextStep(event)"
         class="step active"
         data-step-index="1"
       >
-        <h2>Please enter your contact information</h2>
+        <h2>فضلًا أدخل معلوماتك للتواصل معك</h2>
         <div class="file-uploader form-group">
           <div class="preview">
             <div class="file-name"></div>
@@ -48,14 +48,14 @@
                 class="btn-primary"
                 onclick="changeUploadedVideo()"
               >
-                Change
+                تغيير
               </button>
               <button
                 type="button"
                 class="btn-danger"
                 onclick="resetfileUploader()"
               >
-                Reset
+                إعادة تعيين
               </button>
             </div>
           </div>
@@ -67,10 +67,10 @@
                   alt="Cloud Upload Icon"
                 />
               </div>
-              <div class="btn main-btn">Upload video</div>
+              <div class="btn main-btn">حدد فيديو لرفعه</div>
               <div>
-                <h5>Maximum 15 MG or 30 seconds</h5>
-                <p>Uploaded content is under the ownership rights of stc</p>
+                <h5>30 ثانية أو 15 ميجابايت كحد أقصى</h5>
+                <p>المحتوى الذي يتم رفعه يندرج تحت حقوق ملكية stc</p>
               </div>
             </label>
             <input
@@ -83,23 +83,21 @@
             />
           </div>
         </div>
-        <!-- Full Name -->
         <div class="form-group">
-          <label>Full name</label>
+          <label>الاسم الكامل</label>
           <div class="form-field">
             <input
               required
               type="text"
               name="name"
-              pattern=".{2,255}"
-              data-err-msg="Type your name correctly, 2 characters minimum"
+              pattern=".{2,100}"
+              data-err-msg="أكتب أسمك بحيث لا يقل عن حرفين"
             />
           </div>
         </div>
-        <!-- Mobile Number -->
         <div class="form-group">
-          <label>Phone number</label>
-          <div class="form-field flex">
+          <label>رقم الجوال</label>
+          <div class="form-field flex ltr">
             <div class="form-control-prepend">+966</div>
             <input
               required
@@ -108,29 +106,27 @@
               maxlength="10"
               name="mobile"
               pattern="(5|05)\+?[0-9]{8}"
-              data-err-msg="Incorrect Saudi mobile number"
+              data-err-msg="رقم جوال سعودى غير صحيح"
             />
           </div>
         </div>
-        <!-- Email -->
         <div class="form-group">
-          <label>Email</label>
+          <label>البريد الالكترونى</label>
           <div class="form-field">
             <input
               required
               type="email"
               name="email"
-              pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-              data-err-msg="Incorrect email"
+              pattern="[a-z0-9A-Z._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              data-err-msg="بريد الاكترونى خاطئ"
             />
           </div>
         </div>
-        <!-- City dropdown -->
         <div class="form-group">
-          <label>City</label>
+          <label>المدينة</label>
           <div class="form-field">
-            <div class="dropdown dropdown-geo" data-param="city" data-lang="en">
-              <button type="button" data-default="Select city"></button>
+            <div class="dropdown dropdown-geo" data-param="city" data-lang="ar">
+              <button data-default="اختار المدينة"></button>
               <input type="text" />
               <input type="hidden" name="cityId" />
               <div class="dropdown-wrap"></div>
@@ -139,19 +135,19 @@
         </div>
         <!-- Radio btns -->
         <div class="form-group">
-          <label>Select an option</label>
+          <label>اختار</label>
           <div class="form-field custom-radio">
             <div class="radio-group">
               <input type="radio" name="radio-group" id="radio1" checked />
-              <label for="radio1">Option 1</label>
+              <label for="radio1">اختيار 1</label>
             </div>
             <div class="radio-group">
               <input type="radio" name="radio-group" id="radio2" />
-              <label for="radio2">Option 2</label>
+              <label for="radio2">اختيار 2</label>
             </div>
             <div class="radio-group">
               <input type="radio" name="radio-group" id="radio3" />
-              <label for="radio3">Option 3</label>
+              <label for="radio3">اختيار 3</label>
             </div>
           </div>
         </div>
@@ -165,11 +161,11 @@
               id="termsAndConditions"
             />
             <label for="termsAndConditions">
-              Agree to <a href="#">terms and conditions</a>
+              أوافق على <a href="#">الشروط والأحكام</a>
             </label>
           </div>
         </div>
-        <button type="submit" class="btn main-btn" disabled>Submit</button>
+        <button type="submit" class="btn main-btn" disabled>التالى</button>
       </form>
       <form
         novalidate
@@ -177,30 +173,30 @@
         class="step"
         data-step-index="2"
       >
-        <h2>Enter the OTP sent to your mobile</h2>
+        <h2>أدخل الرمز المرسل إلى جوالك</h2>
         <div class="form-group">
-          <label>OTP</label>
-          <div class="form-field">
+          <label>الرمز المرسل لجوالك</label>
+          <div class="form-field ltr">
             <input
               required
               type="text"
               name="otp"
               maxlength="4"
               pattern="[0-9]{4}"
-              data-err-msg="Incorrect OTP"
+              data-err-msg="الرمز غير صحيح"
             />
           </div>
         </div>
-        <button type="submit" class="btn main-btn" disabled>Submit</button>
+        <button type="submit" class="btn main-btn" disabled>إرسال</button>
       </form>
       <div class="step flex flex-center" id="successMsg" data-step-index="3">
         <img src="/assets/img/icons/checkmark.svg" alt="Checkmark Icon" />
-        <h2>Thank you. We have received your request.</h2>
+        <h2>شكرا لك. تم استلام طلب التفعيل الخاص بكم</h2>
       </div>
     </section>
 
     <!-- stc footer -->
-    <div class="stc-footer-component"></div>
+    <div class="stc-footer-component stc-footer--ar-lang"></div>
 
     <script src="/assets/js/form-validation.js"></script>
     <script src="https://stc-assets.netlify.com/main.js"></script>

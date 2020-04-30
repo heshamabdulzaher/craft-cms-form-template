@@ -102,8 +102,41 @@ body {
   background-color: #fff;
   color: #1d252d;
 }
-body.en {
+
+body.ar {
   direction: rtl;
+}
+body.ar .form-group small {
+  left: auto;
+  right: 0;
+}
+body.ar .form-field.custom-radio .radio-group:first-of-type {
+  padding-right: 0;
+  padding-left: 20px;
+}
+body.ar .form-field.custom-radio label {
+  padding-left: 0;
+  padding-right: 34px;
+}
+body.ar .form-field.custom-radio label::before {
+  left: auto;
+  right: 0;
+}
+body.ar .form-field.custom-radio label::after {
+  left: auto;
+  right: 6px;
+}
+body.ar .form-group.custom-checkbox label {
+  padding-left: 0;
+  padding-right: 34px;
+}
+body.ar .form-group.custom-checkbox label::before {
+  left: auto;
+  right: 0;
+}
+body.ar .form-group.custom-checkbox input:checked + label:after {
+  left: auto;
+  right: 13px;
 }
 
 p {

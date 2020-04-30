@@ -12,7 +12,6 @@ function fireFieldsEvents() {
   formFields = currentActiveStep.querySelectorAll(
     '.step.active .form-group input[name]:not([type="radio"])'
   );
-  console.log(formFields);
   formFields.forEach((inp) => {
     if (inp.type === 'checkbox' || inp.type === 'file') {
       inp.addEventListener('change', onChange);
@@ -79,10 +78,7 @@ function activateSubmitBtn() {
     formFields,
     (inp) => !inp.classList.contains('valid')
   );
-  console.log(inValidFields);
   if (!inValidFields) {
-    console.log('Activate the btn');
-    console.log(submitBtn);
     submitBtn.removeAttribute('disabled');
     submitBtn.classList.add('active');
   } else {
@@ -104,7 +100,6 @@ function videoUploadHandler(e) {
   // Check the size: maximum size to be uploaded is 10MB
   if (sizeByMB <= 10) {
     fileUploader.classList.add('video-uploaded');
-    console.log(fileUploader);
     fileUploader.querySelector('.file-name').innerHTML = file.name;
     fileUploader.querySelector('.file-size').innerHTML =
       sizeByMB.toFixed(2) + ' MB';
