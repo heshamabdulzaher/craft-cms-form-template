@@ -165,6 +165,10 @@ a {
   justify-content: center;
   cursor: pointer;
 }
+.btn.sm {
+  font-size: 14px;
+  padding: 10px 15px;
+}
 .btn.main-btn {
   background-color: #ff375e;
   color: #fff;
@@ -180,6 +184,14 @@ a {
 .btn:disabled {
   background-color: #a8abae;
   cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: #3c40c6 !important;
+}
+
+.btn-danger {
+  background-color: #dc3545 !important;
 }
 
 .main-form {
@@ -456,6 +468,78 @@ a {
 }
 #successMsg img {
   margin-bottom: 20px;
+}
+
+.file-uploader {
+  padding: 20px;
+  width: 100%;
+  border: 2px dashed rgba(142, 154, 160, 0.5);
+  background-color: #fff;
+  border-radius: 6px;
+  transition: 0.1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: 0.6s ease-out;
+  margin-bottom: 20px;
+}
+.file-uploader .control-group {
+  width: 100% !important;
+  height: 100% !important;
+}
+.file-uploader .control-group input {
+  display: none;
+}
+.file-uploader .control-group label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.file-uploader .control-group .btn {
+  margin: 10px 0 15px;
+}
+.file-uploader .control-group p {
+  font-size: 14px;
+}
+.file-uploader .preview {
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: none;
+}
+.file-uploader .preview .file-name {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #000;
+}
+.file-uploader .preview .file-size {
+  margin-bottom: 15px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.file-uploader .preview .actions button {
+  color: #fff;
+  padding: 6px 15px;
+  border-radius: 3px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.file-uploader .preview .actions button:first-of-type {
+  margin-right: 8px;
+}
+.file-uploader:hover {
+  background-color: #f6f6f6;
+}
+
+.file-uploader.video-uploaded .control-group label {
+  display: none;
+}
+.file-uploader.video-uploaded .preview {
+  display: flex;
 }
 
 @media screen and (max-width: 500px) {

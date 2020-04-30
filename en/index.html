@@ -38,6 +38,51 @@
         data-step-index="1"
       >
         <h2>Please enter your contact information</h2>
+        <div class="file-uploader form-group">
+          <div class="preview">
+            <div class="file-name"></div>
+            <div class="file-size"></div>
+            <div class="actions">
+              <button
+                type="button"
+                class="btn-primary"
+                onclick="changeUploadedVideo()"
+              >
+                Change
+              </button>
+              <button
+                type="button"
+                class="btn-danger"
+                onclick="resetfileUploader()"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="upload-video-control">
+              <div>
+                <img
+                  src="/assets/img/icons/cloud-upload-outline.svg"
+                  alt="Cloud Upload Icon"
+                />
+              </div>
+              <div type="button" class="btn main-btn">Upload video</div>
+              <div>
+                <h5>Maximum 15 MG or 30 seconds</h5>
+                <p>Uploaded content is under the ownership rights of stc</p>
+              </div>
+            </label>
+            <input
+              required
+              type="file"
+              class="form-control"
+              name="fileUploader"
+              id="upload-video-control"
+              accept="video/*"
+            />
+          </div>
+        </div>
         <!-- Full Name -->
         <div class="form-group">
           <label>Full name</label>
@@ -148,7 +193,7 @@
           </div>
           <small></small>
         </div>
-        <button class="btn main-btn" disabled>Submit</button>
+        <button type="submit" class="btn main-btn" disabled>Submit</button>
       </form>
       <div class="step flex flex-center" id="successMsg" data-step-index="3">
         <img src="/assets/img/icons/checkmark.svg" alt="Checkmark Icon" />

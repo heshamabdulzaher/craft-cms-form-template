@@ -1,6 +1,6 @@
 let currentActiveStep = document.querySelector('.main-form .step.active');
 let formFields = currentActiveStep.querySelectorAll(
-  '.step.active .form-field input[name]:not([type="radio"])'
+  '.step.active .form-group input[name]:not([type="radio"])'
 );
 const lang = window.location.pathname.includes('/en') ? 'en' : 'ar';
 window.onload = function () {
@@ -10,13 +10,12 @@ window.onload = function () {
 function fireFieldsEvents() {
   currentActiveStep = document.querySelector('.main-form .step.active');
   formFields = currentActiveStep.querySelectorAll(
-    '.step.active .form-field input[name]:not([type="radio"])'
+    '.step.active .form-group input[name]:not([type="radio"])'
   );
-  console.log(currentActiveStep);
   console.log(formFields);
   formFields.forEach((inp) => {
-    if (inp.type === 'checkbox') {
-      inp.addEventListener('click', onCkecked);
+    if (inp.type === 'checkbox' || inp.type === 'file') {
+      inp.addEventListener('change', onChange);
     }
     inp.addEventListener('keyup', onKeyup);
     inp.addEventListener('blur', onBlur);
@@ -26,8 +25,11 @@ function fireFieldsEvents() {
   });
 }
 
-function onCkecked(e) {
-  if (e.target.checked) {
+function onChange(e) {
+  if (
+    (e.target.type === 'checkbox' && e.target.checked) ||
+    (e.target.type === 'file' && e.target.checkValidity())
+  ) {
     e.target.closest('.form-group').classList.remove('invalid');
     e.target.classList.add('valid');
   } else {
@@ -72,18 +74,55 @@ function onBlur(e) {
 }
 
 function activateSubmitBtn() {
-  let submitBtn = currentActiveStep.querySelector('.main-btn');
+  let submitBtn = currentActiveStep.querySelector('button[type="submit"]');
   let inValidFields = [].some.call(
     formFields,
     (inp) => !inp.classList.contains('valid')
   );
+  console.log(inValidFields);
   if (!inValidFields) {
+    console.log('Activate the btn');
+    console.log(submitBtn);
     submitBtn.removeAttribute('disabled');
     submitBtn.classList.add('active');
   } else {
     submitBtn.setAttribute('disabled', '');
     submitBtn.classList.remove('active');
   }
+}
+
+// ===================== Upload file ===============
+const fileUploader = document.querySelector('.file-uploader');
+let file;
+fileUploader.addEventListener('change', videoUploadHandler);
+
+function videoUploadHandler(e) {
+  if (e.target.files.length === 0) return;
+  file = e.target.files[0];
+  const sizeByMB = file.size / (1024 * 1024);
+
+  // Check the size: maximum size to be uploaded is 10MB
+  if (sizeByMB <= 10) {
+    fileUploader.classList.add('video-uploaded');
+    console.log(fileUploader);
+    fileUploader.querySelector('.file-name').innerHTML = file.name;
+    fileUploader.querySelector('.file-size').innerHTML =
+      sizeByMB.toFixed(2) + ' MB';
+    return file;
+  } else {
+    e.target.value = '';
+    fileUploader.classList.remove('video-uploaded');
+    alert('maximum size to be uploaded is 10MB');
+    return false;
+  }
+}
+
+function changeUploadedVideo() {
+  fileUploader.querySelector('input[type="file"]').click();
+}
+function resetfileUploader() {
+  fileUploader.classList.remove('video-uploaded');
+  fileUploader.querySelector('input[type="file"]').value = '';
 }
 
 // =============== Dropdown ===============
