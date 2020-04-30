@@ -300,38 +300,40 @@ a {
   border-radius: 4px;
   background-color: white;
 }
-.form-group.custom-checkbox label a {
-  color: #ff375e;
+.form-group.custom-checkbox a {
+  color: #2878f0;
   text-decoration: underline;
 }
 
-.form-group.custom-radio {
+.form-field.custom-radio {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: row;
 }
-.form-group.custom-radio .radio-group {
+.form-field.custom-radio .radio-group {
   padding: 20px;
 }
-.form-group.custom-radio input {
+.form-field.custom-radio .radio-group:first-of-type {
+  padding-left: 0;
+}
+.form-field.custom-radio input {
   display: none;
 }
-.form-group.custom-radio input:checked + label:before {
+.form-field.custom-radio input:checked + label:before {
   border: 2px solid #ff375e;
   background-color: transparent;
 }
-.form-group.custom-radio input:checked + label::after {
+.form-field.custom-radio input:checked + label::after {
   transform: translateY(-50%) scale(1);
 }
-.form-group.custom-radio label {
+.form-field.custom-radio label {
   position: relative;
   cursor: pointer;
   padding: 0;
   padding-left: 34px;
   user-select: none;
 }
-.form-group.custom-radio label::before {
+.form-field.custom-radio label::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -344,7 +346,7 @@ a {
   background-color: #fff;
   border: 2px solid #dfe1e6;
 }
-.form-group.custom-radio label::after {
+.form-field.custom-radio label::after {
   content: "";
   position: absolute;
   top: 50%;

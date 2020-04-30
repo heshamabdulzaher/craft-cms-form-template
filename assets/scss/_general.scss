@@ -217,21 +217,23 @@ a {
       border-radius: 4px;
       background-color: white;
     }
-    a {
-      color: #ff375e;
-      text-decoration: underline;
-    }
+  }
+  a {
+    color: #2878f0;
+    text-decoration: underline;
   }
 }
 
 // Radio btns
-.form-group.custom-radio {
+.form-field.custom-radio {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: row;
   .radio-group {
     padding: 20px;
+    &:first-of-type {
+      padding-left: 0;
+    }
   }
   input {
     display: none;
