@@ -1,5 +1,5 @@
-const currentActiveStep = document.querySelector('.main-form .step.active');
-const formFields = currentActiveStep.querySelectorAll(
+let currentActiveStep = document.querySelector('.main-form .step.active');
+let formFields = currentActiveStep.querySelectorAll(
   '.step.active .form-field input[name]:not([type="radio"])'
 );
 const lang = window.location.pathname.includes('/en') ? 'en' : 'ar';
@@ -8,8 +8,13 @@ window.onload = function () {
 };
 
 function fireFieldsEvents() {
+  currentActiveStep = document.querySelector('.main-form .step.active');
+  formFields = currentActiveStep.querySelectorAll(
+    '.step.active .form-field input[name]:not([type="radio"])'
+  );
+  console.log(currentActiveStep);
+  console.log(formFields);
   formFields.forEach((inp) => {
-    console.log(inp);
     if (inp.type === 'checkbox') {
       inp.addEventListener('click', onCkecked);
     }
@@ -159,3 +164,16 @@ geoDropdowns.forEach((item) => {
 
 const cityDropdown = document.querySelector('.dropdown-geo[data-param=city]');
 loadGetDropdown(cityDropdown, 'cities');
+
+// Render next step
+function renderNextStep(e) {
+  e.preventDefault();
+  // remove active class from current step, add active class to the next step using data-step-index attr
+  let nextIndex = parseInt(e.target.getAttribute('data-step-index')) + 1;
+  let nextStep = document.querySelector(
+    `.step[data-step-index="${nextIndex}"]`
+  );
+  e.target.classList.remove('active');
+  nextStep.classList.add('active');
+  fireFieldsEvents();
+}

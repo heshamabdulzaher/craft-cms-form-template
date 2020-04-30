@@ -451,6 +451,18 @@ a {
   display: block;
 }
 
+#successMsg {
+  flex-direction: column;
+}
+#successMsg img {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .main-form {
+    padding: 50px 20px;
+  }
+}
 header {
   padding: 20px 0;
 }
