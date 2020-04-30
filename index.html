@@ -6,14 +6,16 @@
     <title>Craft CMS Form Template</title>
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <script>
-      window.onUsersnapCXLoad = function (api) {
-        api.init();
-      };
-      var script = document.createElement('script');
-      script.async = 1;
-      script.src =
-        'https://widget.usersnap.com/load/bcdd0a8c-69a8-4a49-b7dd-cd797b11050a?onload=onUsersnapCXLoad';
-      document.getElementsByTagName('head')[0].appendChild(script);
+      Userback = window.Userback || {};
+      Userback.access_token =
+        '8895|16100|C8sQYQDu4rgHCpPhrPFXWmCVp5r2Glw4A8LmkODAqGHq7F3nTY';
+      (function (id) {
+        var s = document.createElement('script');
+        s.async = 1;
+        s.src = 'https://static.userback.io/widget/v1.js';
+        var parent_node = document.head || document.body;
+        parent_node.appendChild(s);
+      })('userback-sdk');
     </script>
   </head>
   <body>
