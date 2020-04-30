@@ -79,3 +79,82 @@ function activateSubmitBtn() {
     submitBtn.classList.remove('active');
   }
 }
+
+// =============== Dropdown ===============
+function loadGetDropdown(dropdown, endpoint, callback) {
+  let lang = dropdown.dataset.lang;
+  let wrap = dropdown.querySelector('.dropdown-wrap');
+  wrap.innerHTML = '';
+  dropdown.classList.add('disabled');
+  dropdown.classList.remove('empty');
+  let btn = dropdown.querySelector('button');
+  btn.innerText = btn.dataset.default;
+  let input = dropdown.querySelector('input[type=hidden]');
+  input.value = '';
+  input.classList.remove('valid');
+  fetch('https://p40.laywagif.com/api/' + endpoint, {
+    method: 'get',
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      data.data.map((item) => {
+        let a = document.createElement('a'),
+          id = item.id,
+          name = lang === 'ar' ? item.nameAr : item.nameEn;
+        a.innerText = name;
+        a.addEventListener('click', (e) => {
+          e.stopPropagation();
+          input.value = id;
+          input.classList.add('valid');
+          btn.innerText = name;
+          dropdown.classList.remove('open');
+          if (callback) {
+            callback(id);
+          }
+          activateSubmitBtn();
+          return false;
+        });
+        wrap.append(a);
+      });
+      if (data.data.length > 0) {
+        dropdown.classList.remove('disabled');
+      } else {
+        dropdown.classList.remove('disabled');
+        dropdown.classList.add('empty'); // Dropdown is empty
+        input.classList.add('valid');
+      }
+    });
+}
+
+const geoDropdowns = [document.querySelector('.dropdown-geo')];
+geoDropdowns.forEach((item) => {
+  const btn = item.querySelector('button');
+  btn.innerText = btn.dataset.default;
+  btn.addEventListener('click', (e) => {
+    item.classList.toggle('open');
+    item.querySelector('input').value = '';
+    item.querySelectorAll('.dropdown-wrap a').forEach((a) => {
+      a.classList.remove('hide');
+    });
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
+  });
+  item.querySelector('input[type=text]').addEventListener('keyup', (e) => {
+    const val = e.target.value.toString().trim(),
+      regexp = new RegExp(val.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
+    item.querySelectorAll('.dropdown-wrap a').forEach((a) => {
+      if (!val || regexp.test(a.innerHTML)) {
+        a.classList.remove('hide');
+      } else {
+        a.classList.add('hide');
+      }
+    });
+  });
+});
+
+const cityDropdown = document.querySelector('.dropdown-geo[data-param=city]');
+loadGetDropdown(cityDropdown, 'cities');

@@ -54,7 +54,7 @@
         <!-- Mobile Number -->
         <div class="form-group">
           <label>Phone number</label>
-          <div class="form-field">
+          <div class="form-field flex">
             <div class="form-control-prepend">+966</div>
             <input
               required
@@ -79,6 +79,19 @@
               data-err-msg="Incorrect email"
             />
           </div>
+        </div>
+        <!-- City dropdown -->
+        <div class="form-group">
+          <label>City</label>
+          <div class="form-field">
+            <div class="dropdown dropdown-geo" data-param="city" data-lang="en">
+              <button type="button" data-default="Select city"></button>
+              <input type="text" />
+              <input type="hidden" name="cityId" />
+              <div class="dropdown-wrap"></div>
+            </div>
+          </div>
+          <small></small>
         </div>
         <!-- Radio btns -->
         <div class="form-group">
