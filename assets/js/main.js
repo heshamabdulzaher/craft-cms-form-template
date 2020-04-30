@@ -1,34 +1,4 @@
-let submittedData = {};
-const preOrderPhoneSection = document.querySelector(
-  '#preOrderTheDeviceSection'
-);
 const lang = window.location.pathname.includes('/en') ? 'en' : 'ar';
-
-const languages = {
-  en: 'english',
-  ar: 'arabic',
-  hi: 'hindi',
-  bn: 'bengali',
-  id: 'indonesia',
-  tl: 'tagalog',
-  ur: 'urdu',
-};
-
-// Let's move to the second step
-function moveToSecondStep() {
-  let selectedColor = document.querySelector('input[type=radio]#black').checked
-    ? 'black'
-    : 'silverFrost';
-  submittedData.color = selectedColor;
-  preOrderPhoneSection.classList.remove('first-step');
-  preOrderPhoneSection.classList.add('second-step');
-  let colorName = document.querySelector('#aboutDevice .properties span.color');
-  if (window.location.pathname === '/en/') {
-    colorName.innerHTML = selectedColor === 'black' ? 'Black' : 'Silver';
-  } else {
-    colorName.innerHTML = selectedColor === 'black' ? 'أسود' : 'فضى';
-  }
-}
 
 // On the second step let's begin with validation
 // Get all inputs
@@ -268,12 +238,12 @@ let deviceId = 1;
 function onRadioBtnChecked(e) {
   let activeImg = document.querySelector('.about-phone img.active');
 
-  const labels = document.querySelectorAll('.radio-btns label')
+  const labels = document.querySelectorAll('.radio-btns label');
   for (var label of labels) {
     label.classList.remove('active');
   }
   e.target.parentElement.classList.add('active');
-  
+
   activeImg.classList.remove('active');
   deviceId = e.target.value;
   document

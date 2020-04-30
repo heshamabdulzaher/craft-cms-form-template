@@ -3,71 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Devices Offer" />
-    <meta
-      name="description"
-      content="10% discount on devices when paying in advance"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://devices.laywagif.com/en/" />
-    <meta property="og:title" content="Devices Offer" />
-    <meta
-      property="og:description"
-      content="10% discount on devices when paying in advance"
-    />
-    <meta
-      property="og:image"
-      content="https://devices.laywagif.com/assets/img/stc-logox200.png"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <!-- Twitter -->
-    <meta property="twitter:url" content="https://devices.laywagif.com/en/" />
-    <meta property="twitter:title" content="Devices Offer" />
-    <meta
-      property="twitter:description"
-      content="10% discount on devices when paying in advance"
-    />
-    <meta
-      property="twitter:image"
-      content="https://devices.laywagif.com/assets/img/stc-logox200.png"
-    />
-    <meta property="twitter:card" content="summary_large_image" />
-    <title>Devices Offer</title>
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="../assets/img/favicon.ico"
-    />
+    <title>Craft CMS Form Template</title>
     <link rel="stylesheet" href="../assets/css/styles.css" />
-    <script>
-      window.language = 'english';
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-TC8737Z');
-    </script>
-    <!-- End Google Tag Manager -->
   </head>
-  <body class="en">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-TC8737Z"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden;"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <body>
     <!-- Header -->
     <header>
       <div class="main-container flex align-center justify-between">
@@ -76,136 +15,69 @@
       </div>
     </header>
     <!-- End Header -->
+
     <!-- Main form -->
-    <!-- <div class="main-form">
-      <div class="main-container flex justify-between">
-        <div class="steps">
-          <form class="step active" novalidate onsubmit="submitForm(event)">
-            <div class="radio-btns">
-              <label for="iPhone11pro" class="active">
-                <input
-                  type="radio"
-                  id="iPhone11pro"
-                  name="deviceOptionId"
-                  value="1"
-                  checked
-                  onchange="onRadioBtnChecked(event)"
-                />
-                <div class="color-spot flex direction-column">
-                  <span></span>
-                </div>
-                <div class="names">
-                  <b>iPhone 11</b>
-                  <p>iPhone 11 Pro Max</p>
-                  <p>iPhone 11 Pro</p>
-                  <p>iPhone 11</p>
-                </div>
-              </label>
-              <label for="samsungS20">
-                <input
-                  type="radio"
-                  id="samsungS20"
-                  name="deviceOptionId"
-                  value="2"
-                  onchange="onRadioBtnChecked(event)"
-                />
-                <div class="color-spot flex direction-column">
-                  <span></span>
-                </div>
-                <div class="names">
-                  <b>Samsung Galaxy S20</b>
-                  <p>Samsung Galaxy S20 Ultra 5G</p>
-                  <p>Samsung Galaxy S20+ 5G</p>
-                  <p>Samsung Galaxy S20</p>
-                </div>
-              </label>
-            </div>
-            <div class="fields-container">
-              <div class="form-group">
-                <label>Full name</label>
-                <div class="form-field">
-                  <input
-                    required
-                    type="text"
-                    name="name"
-                    placeholder="Enter your full name"
-                    pattern=".{2,255}"
-                    data-err-msg="Name shall be at least 2 characters"
-                  />
-                </div>
-                <small></small>
-              </div>
-              <div class="form-group">
-                <label>Phone number</label>
-                <div class="form-field">
-                  <div class="form-control-prepend">+966</div>
-                  <input
-                    required
-                    type="tel"
-                    minlength="9"
-                    maxlength="10"
-                    placeholder="Enter your phone number"
-                    name="mobile"
-                    pattern="(5|05)\+?[0-9]{8}"
-                    data-err-msg="Incorrect Saudi mobile number"
-                  />
-                </div>
-                <small></small>
-              </div>
-              <div class="form-group">
-                <label>City</label>
-                <div class="form-field">
-                  <div
-                    class="dropdown dropdown-geo"
-                    data-param="city"
-                    data-lang="en"
-                  >
-                    <button type="button" data-default="Select city"></button>
-                    <input type="text" />
-                    <input type="hidden" name="cityId" />
-                    <div class="dropdown-wrap"></div>
-                  </div>
-                </div>
-                <small></small>
-              </div>
-            </div>
-            <div class="alert-err-msg">
-              Something went wrong, please try again and make sure your
-              information is correct
-            </div>
-          </form>
-          <div id="loading-msg">Loading...</div>
-          <div id="successMsg" class="step">
-            <img src="../assets/img/icons/checkmark.svg" alt="Checkmark Icon" />
-            <p>Thank you. We have received your request</p>
+    <section class="main-form">
+      <div class="alert-err-msg">something went wrong!</div>
+      <form
+        novalidate
+        onsubmit="submitForm(event)"
+        class="step active"
+        data-step-index="1"
+      >
+        <h2>Please enter your contact information</h2>
+        <div class="form-group">
+          <label>Full name</label>
+          <div class="form-field">
+            <input
+              required
+              type="text"
+              name="name"
+              pattern=".{2,255}"
+              data-err-msg="Type your name correctly, 2 characters minimum"
+            />
           </div>
         </div>
-        <div class="about-phone flex flex-dir-col align-center justify-between">
-          <img
-            class="active"
-            src="../assets/img/phone/iPhone11pro.jpg"
-            alt="iPhone 11 Pro"
-            id="iPhone11pro"
-          />
-          <img
-            src="../assets/img/phone/samsungS20.jpg"
-            alt="samsung S20"
-            id="samsungS20"
-          />
-          <button
-            class="btn submitUserDataBtn main-btn f-width submit-form"
-            disabled
-          >
-            Submit
-          </button>
+        <div class="form-group">
+          <label>Phone number</label>
+          <div class="form-field">
+            <div class="form-control-prepend">+966</div>
+            <input
+              required
+              type="tel"
+              minlength="9"
+              maxlength="10"
+              name="mobile"
+              pattern="(5|05)\+?[0-9]{8}"
+              data-err-msg="Incorrect Saudi mobile number"
+            />
+          </div>
         </div>
-      </div>
-    </div> -->
+        <div class="form-group">
+          <label>Email</label>
+          <div class="form-field">
+            <input
+              required
+              type="email"
+              name="email"
+              pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              data-err-msg="Incorrect email"
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn main-btn" disabled>Submit</button>
+      </form>
+      <!-- <div class="step flex flex-center" id="successMsg" data-step-index="2">
+        <img src="/assets/img/icons/checkmark.svg" alt="Checkmark Icon" />
+        <h2>Thank you. We have received your request.</h2>
+      </div> -->
+    </section>
 
     <!-- stc footer -->
     <div class="stc-footer-component"></div>
-    <script src="../assets/js/main.js" async></script>
-    <script src="https://stc-assets.netlify.com/main.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lcs0-cUAAAAAIYIBZ8LbZg_uGGkYXnTZ1J3m5Kf"></script>
+
+    <script src="/assets/js/form-validation.js"></script>
+    <!-- <script src="https://stc-assets.netlify.com/main.js"></script> -->
+    <!-- <script src="https://www.google.com/recaptcha/api.js?render=6Lcs0-cUAAAAAIYIBZ8LbZg_uGGkYXnTZ1J3m5Kf"></script> -->
   </body>
 </html>
