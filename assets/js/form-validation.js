@@ -9,16 +9,28 @@ window.onload = function () {
 
 function fireFieldsEvents() {
   formFields.forEach((inp) => {
-    console.log(inp.type);
-    inp.addEventListener('keyup', onFieldKeyup);
-    inp.addEventListener('blur', onFieldBlur);
+    if (inp.type === 'checkbox') {
+      inp.addEventListener('click', onCkecked);
+    }
+    inp.addEventListener('keyup', onKeyup);
+    inp.addEventListener('blur', onBlur);
     // Create small element to contain error msg
     let small = document.createElement('small');
     inp.closest('.form-group').appendChild(small);
   });
 }
 
-function onFieldKeyup(e) {
+function onCkecked(e) {
+  if (e.target.checked) {
+    e.target.closest('.form-group').classList.remove('invalid');
+    e.target.classList.add('valid');
+  } else {
+    e.target.classList.remove('valid');
+  }
+  activateSubmitBtn();
+}
+
+function onKeyup(e) {
   if (e.target.checkValidity()) {
     e.target.closest('.form-group').classList.remove('invalid');
     e.target.classList.add('valid');
@@ -33,7 +45,7 @@ const errorRequiredMsg = {
   ar: 'هذا الحقل مطلوب لإتمام الطلب',
 };
 let formGroup;
-function onFieldBlur(e) {
+function onBlur(e) {
   formGroup = e.target.closest('.form-group');
   if (e.target.checkValidity()) {
     formGroup.classList.remove('invalid');
