@@ -1,6 +1,6 @@
 const currentActiveStep = document.querySelector('.main-form .step.active');
 const formFields = currentActiveStep.querySelectorAll(
-  '.step.active .form-group input'
+  '.step.active .form-field input'
 );
 const lang = window.location.pathname.includes('/en') ? 'en' : 'ar';
 window.onload = function () {

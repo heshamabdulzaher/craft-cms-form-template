@@ -179,6 +179,104 @@ a {
   }
 }
 
+// Checkboxs
+.form-group.custom-checkbox {
+  input {
+    display: none;
+    &:checked + label:before {
+      background-color: $S_color;
+    }
+    // Checkmark. Could be replaced with an image
+    &:checked + label:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 4px;
+      transform: translateY(-50%) rotate(45deg);
+      background-color: white;
+      width: 3px;
+      height: 3px;
+      box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white,
+        4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    }
+  }
+  label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    padding-left: 34px;
+    user-select: none;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background-color: white;
+    }
+    a {
+      color: #ff375e;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Radio btns
+.form-group.custom-radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  .radio-group {
+    padding: 20px;
+  }
+  input {
+    display: none;
+    &:checked + label:before {
+      border: 2px solid $S_color;
+      background-color: transparent;
+    }
+    &:checked + label::after {
+      transform: translateY(-50%) scale(1);
+    }
+  }
+  label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    padding-left: 34px;
+    user-select: none;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 2px solid #dfe1e6;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 6px;
+      transform: translateY(-50%) scale(0);
+      transition: all 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      background-color: $S_color;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+  }
+}
+
 // Alert error msg
 .alert-err-msg {
   color: $S_color;
@@ -192,51 +290,5 @@ a {
   display: none;
   &.show {
     display: block;
-  }
-}
-
-// Checkbox
-.checkbox {
-  display: none;
-
-  & + label {
-    position: relative;
-    cursor: pointer;
-    padding: 0;
-    padding-left: 30px;
-    a {
-      color: $S_color;
-      text-decoration: underline;
-    }
-  }
-
-  // Box.
-  & + label:before {
-    content: '';
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    border-radius: 3px;
-    transform: translateY(-50%);
-  }
-  // Box checked
-  &:checked + label:before {
-    background-color: $S_color;
-  }
-  // Checkmark. Could be replaced with an image
-  &:checked + label:after {
-    content: '';
-    position: absolute;
-    left: 4px;
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-    background: white;
-    width: 3px;
-    height: 3px;
-    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
-      4px -6px 0 white, 4px -8px 0 white;
   }
 }
