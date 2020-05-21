@@ -1,0 +1,41 @@
+@import './formGroup';
+@import './alertMsg';
+@import './ddl';
+@import './fileUploader';
+@import './radioBtns';
+@import './checkbox';
+
+.main-form {
+  max-width: 700px;
+  width: 100%;
+  margin: 60px auto;
+  background-color: rgb(243, 243, 241);
+  padding: 40px 50px;
+  border-radius: 3px;
+  h2 {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+}
+.step {
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+  &.active {
+    display: flex;
+  }
+}
+#successMsg {
+  flex-direction: column;
+  img {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and(max-width: 500px) {
+  .main-form {
+    padding: 50px 20px;
+  }
+}
